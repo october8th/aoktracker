@@ -9,7 +9,7 @@ import "./Main.css";
 class Main extends Component {
     constructor(props) {
         super(props);
-        this.scrollTo = this.scrollTo.bind(this);
+        this.scrollToTop = this.scrollToTop.bind(this);
     }
 
     componentDidMount() {
@@ -24,8 +24,8 @@ class Main extends Component {
         scrollSpy.update();
     }
 
-    scrollToBottom() {
-        scroll.scrollToBottom();
+    scrollToTop() {
+        scroll.scrollToTop();
     }
     
     scrollTo() {
@@ -33,6 +33,7 @@ class Main extends Component {
             duration: 1500,
             delay: 100,
             smooth: true,
+            isDynamic: true,
             containerId: "About",
             offset: 500
         });
@@ -45,6 +46,7 @@ class Main extends Component {
 
     render() {
         return(
+            <div id="parentContainer">
             <Wrapper backgroundImage={Ripples}>
                 <div className="container">
                     <Heading>
@@ -54,16 +56,20 @@ class Main extends Component {
                     </Heading>
                     <section>
                         <h5>
-                            <Link activeClass="active" id="scrollDown" to="About" spy={true} smooth={true} duration={1500}>
+                            <Link activeClass="active" id="scrollDown" to="About" spy={true} smooth={true} isDyamic={true} duration={1500}>
                                 Scroll to About
                             </Link>
                         </h5>
                     </section>
                 </div>
-                <element name="About">
-                    <About />
-                </element>
             </Wrapper>
+                <element name="About" id="aboutContainer">
+                    <About 
+                        onClick={this.scrollToTop} 
+                    />
+                </element>
+            
+            </div>
         );
     }
 }
