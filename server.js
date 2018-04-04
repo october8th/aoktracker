@@ -18,6 +18,8 @@ if (process.env.NODE_ENV === "production") {
 //Add routes, both API and view
 //app.use(routes);
 
+//https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAWFy0E2ch52woUGcHiQ27eq5tzZuhI4JE
+
 // Require all models
 var db = require("./models");
 
