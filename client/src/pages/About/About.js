@@ -1,10 +1,12 @@
 import React from "react";
 import Nav from "../../components/Nav";
 import Heading from "../../components/Heading";
+import Wrapper from "../../components/Wrapper";
 import "./About.css";
+import Ripples from "../../images/ripples.jpg";
 
 const About = () => (
-    <div id="aboutStyle">
+    <Wrapper backgroundImage={Ripples}>
         <Nav />
         <div className="container">
             <Heading>
@@ -28,7 +30,7 @@ const About = () => (
                 Maecenas commodo, elit vel luctus placerat, mauris risus vulputate augue, quis laoreet elit diam semper justo. Curabitur finibus, enim sed ultricies posuere, leo orci elementum metus, scelerisque lobortis ligula enim non metus. Ut sit amet justo ac arcu dignissim mollis at condimentum justo. Nam lobortis diam non lacus semper efficitur. Vestibulum in ex consequat, laoreet mi sed, ornare urna. Mauris sit amet ante velit. Phasellus quis mi eget arcu accumsan auctor. Sed sed nunc semper, imperdiet neque non, tempus dolor. Vestibulum at diam vel lectus tincidunt scelerisque auctor a ipsum. Aenean vel nisi sit amet nulla ultrices cursus. Vestibulum velit tortor, suscipit ac enim ac, egestas accumsan tortor. Etiam dignissim eleifend lorem, venenatis tempus velit pulvinar eu. Curabitur egestas quam eget dolor lobortis, dignissim pellentesque massa luctus. Vivamus porttitor ipsum non tortor consequat facilisis. Donec lacinia urna ex, quis placerat ligula tempus id.
             </p>
         </div>
-    </div>
+    </Wrapper>
 );
 
 export default About;
