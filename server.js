@@ -18,6 +18,14 @@ if (process.env.NODE_ENV === "production") {
 //Add routes, both API and view
 //app.use(routes);
 
+// Require all models
+var db = require("./models");
+
+mongoose.Promise = Promise;
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/aokTracker", {
+  useMongoClient: true
+});
+
 /*
 //Set up promises with mongoose
 mongoose.Promise = global.Promise;
