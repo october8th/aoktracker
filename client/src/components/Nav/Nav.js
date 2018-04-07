@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import Facebook from "../Facebook";
 
 const Nav = props => (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,6 +20,9 @@ const Nav = props => (
                     <Link to="/about" className="nav-link">
                         About
                     </Link>
+                </li>
+                <li>
+                    <Facebook />
                 </li>
             </ul>
         </div>
