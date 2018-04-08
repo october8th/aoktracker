@@ -21,6 +21,17 @@ const Nav = props => (
                         About
                     </Link>
                 </li>
+                <li
+                    className={
+                        window.location.pathname === "/messageboard"
+                            ? "nav-item active"
+                            : "nav-item"
+                    }
+                >
+                    <Link to="/messageboard" className="nav-link">
+                        AOK Message Board
+                    </Link>
+                </li>
                 <li className="nav-item">
                     <Facebook />
                 </li>
