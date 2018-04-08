@@ -25,7 +25,7 @@ var db = require("./models");
 
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/aokTracker", {
-  useMongoClient: true
+  //useMongoClient: true
 });
 
 /*
