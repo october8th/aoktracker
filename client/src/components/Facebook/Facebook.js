@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import FacebookLoginWithButton from "react-facebook-login";
+import FacebookLogin from "react-facebook-login";
+import "./Facebook.css";
 
 const responseFacebook = (response) => {
     console.log(response);
@@ -9,13 +10,19 @@ class FacebookComponent extends Component {
 
     render() {
         return (
-            <FacebookLoginWithButton
-                appId="158697921487245"
-                autoLoad
-                fields="name,email,picture"
-                scope="public_profile,user_friends,user_actions.books"
-                callback={responseFacebook}
-            />
+            <div style={{display: "flex", flexWrap: "wrap"}}>
+                <FacebookLogin
+                    appId="158697921487245"
+                    autoLoad
+                    fields="name,email,picture"
+                    style={{height: "10px"}}
+                    cssClass="btnFacebook"
+                    scope="public_profile,user_friends,user_actions.books"
+                    callback={responseFacebook}
+                    icon="fab fa-facebook-square"
+                    textButton = "&nbsp;&nbsp;Log In"
+                />
+            </div>
         );
     }
 }

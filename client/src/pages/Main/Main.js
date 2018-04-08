@@ -30,8 +30,8 @@ class Main extends Component {
     
     scrollTo() {
         scroller.scrollTo("About", {
-            duration: 1500,
-            delay: 100,
+            duration: 500,
+            delay: 10,
             smooth: true,
             isDynamic: true,
             containerId: "About",
@@ -56,18 +56,18 @@ class Main extends Component {
                     </Heading>
                     <section>
                         <h5>
-                            <Link activeClass="active" id="scrollDown" to="About" spy={true} smooth={true} isDyamic={true} duration={1500}>
+                            <Link activeClass="active" id="scrollDown" to="About" spy={true} smooth={true} isDynamic={true} duration={1500}>
                                 Scroll to About
                             </Link>
                         </h5>
                     </section>
                 </div>
             </Wrapper>
-                <element name="About" id="aboutContainer">
+                <Element name="About" id="aboutContainer">
                     <About 
                         onClick={this.scrollToTop} 
                     />
-                </element>
+                </Element>
             
             </div>
         );

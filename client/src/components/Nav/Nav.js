@@ -8,7 +8,7 @@ const Nav = props => (
         <Link className="navbar-brand" to="/">
             AOKTracker
         </Link>
-        <div>
+        <div className="ml-auto">
             <ul className="navbar-nav">
                 <li
                     className={
@@ -21,7 +21,7 @@ const Nav = props => (
                         About
                     </Link>
                 </li>
-                <li>
+                <li className="nav-item">
                     <Facebook />
                 </li>
             </ul>
