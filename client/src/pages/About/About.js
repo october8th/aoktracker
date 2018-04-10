@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../../components/Nav";
+import CustomNav from "../../components/Nav";
 import Heading from "../../components/Heading";
 import Wrapper from "../../components/Wrapper";
 import "./About.css";
@@ -7,7 +7,7 @@ import Ripples from "../../images/ripples.jpg";
 
 const About = props => (
     <Wrapper backgroundImage={Ripples}>
-        <Nav />
+        <CustomNav />
         <div className="container">
             <Heading>
                 <h1>
