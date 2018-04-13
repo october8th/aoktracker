@@ -5,17 +5,20 @@ import Heading from "../../components/Heading";
 import { Col, Row, Container } from "../../components/Grid";
 import AOKModal from "../../components/AOKModal";
 import { Input, Textarea, SubmitBtn } from "../../components/Form";
-import { Button } from "react-bootstrap";
+import { Button, ListGroup, ListGroupItem, Panel } from "react-bootstrap";
 import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
+import actsOfKindness from "../../test-data/AOK.js";
 
 class AOKMessageBoard extends Component {
     constructor(props) {
         super(props);
         
         this.state = {
+            actsOfKindness = [],
             name: "",
             date: "",
+            title: "",
             summary: ""
         };
     }
@@ -30,7 +33,13 @@ class AOKMessageBoard extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.name && this.state.date && this.state.summary) {
-            console.log(`Name: ${this.state.name} \n Date: ${this.state.date} \n Summary: ${this.state.summary}`);
+            const userData = {
+                name: this.state.name,
+                date: this.state.date,
+                summary: this.state.summary
+            }
+            actsOfKindness.push(userData);
+            console.log(actsOfKindness);
         }
     }
 
@@ -63,6 +72,13 @@ class AOKMessageBoard extends Component {
                             name="date"
                             placeholder="Date of AOK"
                         />
+                        <Input
+                            type="text"
+                            value={this.state.title}
+                            onChange={this.handleInputChange}
+                            name="title"
+                            placeholder="Summary Title"
+                        />
                         <Textarea
                             value={this.state.summary}
                             onChange={this.handleInputChange}
@@ -74,6 +90,26 @@ class AOKMessageBoard extends Component {
                             onClick={this.handleFormSubmit}
                         />
                     </AOKModal>
+                    {this.state.actsOfKindness.map(act => (
+                        <Panel>
+                            <Panel.Heading>
+                                {act.title}
+                            </Panel.Heading>
+                            <Panel.Body>
+                                <ListGroup>
+                                    <ListGroupItem>
+                                        Name: {act.name}
+                                    </ListGroupItem>
+                                    <ListGroupItem>
+                                        Date: {act.date}
+                                    </ListGroupItem>
+                                    <ListGroupItem>
+                                        Summary: {act.summary}
+                                    </ListGroupItem>
+                                </ListGroup>
+                            </Panel.Body>
+                        </Panel>
+                    ))}
                 </Container>
             </Wrapper>
         );
