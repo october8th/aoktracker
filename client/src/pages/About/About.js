@@ -2,6 +2,7 @@ import React from "react";
 import Heading from "../../components/Heading";
 import Wrapper from "../../components/Wrapper";
 import { Grid, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./About.css";
 import Ripples from "../../images/ripples.jpg";
 
@@ -47,18 +48,21 @@ const About = props => (
             </Row>
             <Row className="aboutSections">
                 <Col md={2} mdOffset={2}>
+                    <Link href="/aoklist" to="/aoklist" className="routingLinks">
+                        AOK List
+                    </Link>
                 </Col>
             </Row>
-            <Row>
+            <Row classname="aboutSections" id="quote">
                 <Col md={8} mdOffset={2}>
-                    <blockquote id="quote">
+                    <blockquote>
                         <h3>
                             "Remember there's no such thing as a small act of kindness.  Every act creates a ripple with no logical end." --Scott Adams
                         </h3>
                     </blockquote>
                 </Col>
             </Row>
-            <a onClick={props.onClick}>
+            <a className="routingLinks" onClick={props.onClick}>
                 Click to Return to the Top
             </a>
         </Grid>

@@ -8,7 +8,16 @@
     margin-top: 5%;
 }
 
+.routingLinks {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+
 #quote {
     font-family: 'Courgette', cursive;
+    margin-top: 5%;
 }
+
+
 

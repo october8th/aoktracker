@@ -20,6 +20,11 @@
     text-align: center;
 }
 
+#scrollArrow {
+    color: white;
+    font-size: 24px;
+}
+
 .wrapper {
     overflow: scroll;
     overflow-x: hidden;

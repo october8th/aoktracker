@@ -3,18 +3,21 @@ import CustomNav from "../../components/Nav";
 import Wrapper from "../../components/Wrapper";
 import Heading from "../../components/Heading";
 import AOKModal from "../../components/AOKModal";
-import MessageListItem from "../../components/MessageList";
+import AOKPost from "../../components/MessageList";
 import { Input, Textarea, SubmitBtn } from "../../components/Form";
 import API from "../../utils/API";
-import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col } from "react-bootstrap";
+import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col, Image } from "react-bootstrap";
 import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
+//for testing purposes
+import AOKs from "../../test-data/AOK.js";
 
 class AOKMessageBoard extends Component {
         
         state = {
-            acts: [],
+            AOKs,
             image: "",
+            date: "",
             title: "",
             link: "",
             story: ""
@@ -42,15 +45,8 @@ class AOKMessageBoard extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.title && this.state.link && this.state.story) {
-            API.saveNewAct({
-                image: this.state.image,
-                title: this.state.title,
-                link: this.state.link,
-                story: this.state.story
-            })
-            .then(res => this.loadActs())
-            .catch(err => console.log(err));
+        if (this.state.title && this.state.date && this.state.story) {
+            console.log(`Image: ${this.state.image} \n Date: ${this.state.date} \n Title: ${this.state.title} \n Story: ${this.state.story} \n Link: ${this.state.link}`);
         }
     };
 
@@ -80,6 +76,13 @@ class AOKMessageBoard extends Component {
                                     onChange={this.handleInputChange}
                                     name="image"
                                     placeholder="Load Your Image"
+                                />
+                                <Input
+                                    type="date"
+                                    value={this.state.date}
+                                    onChange={this.handleInputChange}
+                                    name="date"
+                                    placeholder="Date of AOK"
                                 />
                                 <Input
                                     type="text"
