@@ -2,26 +2,36 @@ import React, { Component } from "react";
 import CustomNav from "../../components/Nav";
 import Wrapper from "../../components/Wrapper";
 import Heading from "../../components/Heading";
-import { Col, Row, Container } from "../../components/Grid";
 import AOKModal from "../../components/AOKModal";
+import MessageListItem from "../../components/MessageList";
 import { Input, Textarea, SubmitBtn } from "../../components/Form";
+import API from "../../utils/API";
 import { Button, ListGroup, ListGroupItem, Panel } from "react-bootstrap";
 import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
-import actsOfKindness from "../../test-data/AOK.js";
 
 class AOKMessageBoard extends Component {
-    constructor(props) {
-        super(props);
         
-        this.state = {
-            actsOfKindness = [],
-            name: "",
-            date: "",
+        state = {
+            acts: [],
+            image: "",
             title: "",
-            summary: ""
+            link: "",
+            story: ""
         };
+    
+
+    componentDidMount() {
+        this.loadActs();
     }
+
+    loadActs = () => {
+        API.getActs()
+            .then(res =>
+                console.log(res.data)
+            )
+            .catch(err => console.log(err));
+    };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -32,16 +42,17 @@ class AOKMessageBoard extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.name && this.state.date && this.state.summary) {
-            const userData = {
-                name: this.state.name,
-                date: this.state.date,
-                summary: this.state.summary
-            }
-            actsOfKindness.push(userData);
-            console.log(actsOfKindness);
+        if (this.state.title && this.state.link && this.state.story) {
+            API.saveNewAct({
+                image: this.state.image,
+                title: this.state.title,
+                link: this.state.link,
+                story: this.state.story
+            })
+            .then(res => this.loadActs())
+            .catch(err => console.log(err));
         }
-    }
+    };
 
     render() {
         return (
@@ -52,7 +63,7 @@ class AOKMessageBoard extends Component {
                         This Is the AOK List
                     </h1>
                 </Heading>
-                <Container>
+                <div className="container">
                     <h5>
                         Add a New Act of Kindness
                         
@@ -60,17 +71,10 @@ class AOKMessageBoard extends Component {
                     <AOKModal>
                         <Input
                             type="text"
-                            value={this.state.name}
+                            value={this.state.image}
                             onChange={this.handleInputChange}
-                            name="name"
-                            placeholder="Your Name"
-                        />
-                        <Input
-                            type="date"
-                            value={this.state.date}
-                            onChange={this.handleInputChange}
-                            name="date"
-                            placeholder="Date of AOK"
+                            name="image"
+                            placeholder="Load Your Image"
                         />
                         <Input
                             type="text"
@@ -79,38 +83,25 @@ class AOKMessageBoard extends Component {
                             name="title"
                             placeholder="Summary Title"
                         />
-                        <Textarea
-                            value={this.state.summary}
+                        <Input
+                            type="text"
+                            value={this.state.link}
                             onChange={this.handleInputChange}
-                            name="summary"
-                            placeholder="This is what happened and how it inspired me."
+                            name="link"
+                            placeholder="What inpired you to do this act of kindness?"
+                        />
+                        <Textarea
+                            value={this.state.story}
+                            onChange={this.handleInputChange}
+                            name="story"
+                            placeholder="This is what I did as an act of kindness for someone else."
                         />
                         <SubmitBtn
                             type="submit"
                             onClick={this.handleFormSubmit}
                         />
                     </AOKModal>
-                    {this.state.actsOfKindness.map(act => (
-                        <Panel>
-                            <Panel.Heading>
-                                {act.title}
-                            </Panel.Heading>
-                            <Panel.Body>
-                                <ListGroup>
-                                    <ListGroupItem>
-                                        Name: {act.name}
-                                    </ListGroupItem>
-                                    <ListGroupItem>
-                                        Date: {act.date}
-                                    </ListGroupItem>
-                                    <ListGroupItem>
-                                        Summary: {act.summary}
-                                    </ListGroupItem>
-                                </ListGroup>
-                            </Panel.Body>
-                        </Panel>
-                    ))}
-                </Container>
+                </div>
             </Wrapper>
         );
     }

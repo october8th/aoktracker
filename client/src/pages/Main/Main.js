@@ -50,17 +50,23 @@ class Main extends Component {
             <Wrapper backgroundImage={Ripples}>
                 <div className="container">
                     <Heading>
-                        <h1>
+                        <h1 id="mainHeading">
                             AOKTracker
                         </h1>
+                        <h3 id="subMainHeading">
+                            Creating Ripples of Positive Change
+                        </h3>
                     </Heading>
-                    <section>
-                        <h5>
+                    <div id="scrollLink">
+                        <h3>
+                            See What We're About
+                        </h3>
+                        <h3>
                             <Link activeClass="active" id="scrollDown" to="About" spy={true} smooth={true} isDynamic={true} duration={1500}>
-                                Scroll to About
+                                <i class="fas fa-arrow-circle-down"></i>
                             </Link>
-                        </h5>
-                    </section>
+                        </h3>
+                    </div>
                 </div>
             </Wrapper>
                 <Element name="About" id="aboutContainer">

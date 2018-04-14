@@ -9,7 +9,7 @@ const App = () => (
     <div>
         <Route exact path="/" component={Main} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/messageboard" component={MessageBoard} />
+        <Route exact path="/aoklist" component={MessageBoard} />
     </div>
   </Router>
 );

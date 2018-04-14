@@ -1,3 +1,25 @@
+#mainHeading {
+    font-family: 'Berkshire Swash', cursive;
+    margin-top: 20%;
+    font-size: 500%;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+#subMainHeading {
+    font-family: 'Berkshire Swash', cursive;
+    margin-top: 10%;
+    font-size: 200%;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+#scrollLink {
+    color: white;
+    margin-top: 10%;
+    font-size: 200%;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+}
+
 .wrapper {
     overflow: scroll;
     overflow-x: hidden;

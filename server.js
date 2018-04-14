@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 //const routes = require("./routes"); 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const routes = require("./routes");
 
 //Configure body-parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,14 +17,14 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Add routes, both API and view
-//app.use(routes);
+app.use(routes);
 
 //https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAWFy0E2ch52woUGcHiQ27eq5tzZuhI4JE
 
 // Require all models
-var db = require("./models");
+//var db = require("./models");
 
-mongoose.Promise = Promise;
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/aokTracker", {
   //useMongoClient: true
 });

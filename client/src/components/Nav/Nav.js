@@ -21,7 +21,7 @@ class CustomNav extends Component {
                         <NavItem componentClass={ Link } href="/about" to="/about" className="link">
                             About
                         </NavItem>
-                        <NavItem componentClass={ Link } href="/messageboard" to="/messageboard" className="link">
+                        <NavItem componentClass={ Link } href="/aoklist" to="/aoklist" className="link">
                             AOK List
                         </NavItem>
                         <NavItem componentClass={ Link } href="#" to="#" className="link">
