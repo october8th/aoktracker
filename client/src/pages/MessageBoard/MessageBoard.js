@@ -10,7 +10,7 @@ import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col, Image } from "
 import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
 //for testing purposes
-import AOKs from "../../test-data/AOK.js";
+import AOKs from "../../AOK.json";
 
 class AOKMessageBoard extends Component {
         
@@ -109,6 +109,19 @@ class AOKMessageBoard extends Component {
                                     onClick={this.handleFormSubmit}
                                 />
                             </AOKModal>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={8} mdOffset={2}>
+                            {this.state.AOKs.map(aok => (
+                                <AOKPost
+                                    key={aok.id}
+                                    title={aok.title}
+                                    image={aok.image}
+                                    story={aok.story}
+                                    link={aok.link}
+                                />
+                            ))}
                         </Col>
                     </Row>
                 </Grid>
