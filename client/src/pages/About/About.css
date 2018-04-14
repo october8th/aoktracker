@@ -4,8 +4,8 @@
     min-height: 100%;
 }
 
-#quote, #info {
-    margin-top: 10%;
+.aboutSections {
+    margin-top: 5%;
 }
 
 #quote {
