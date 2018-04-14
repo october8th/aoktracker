@@ -3,7 +3,7 @@ import CustomNav from "../../components/Nav";
 import Wrapper from "../../components/Wrapper";
 import Heading from "../../components/Heading";
 import AOKModal from "../../components/AOKModal";
-import AOKPost from "../../components/MessageList";
+import AOKListItems from "../../components/AOKListItems";
 import { Input, Textarea, SubmitBtn } from "../../components/Form";
 import API from "../../utils/API";
 import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col, Image } from "react-bootstrap";
@@ -23,7 +23,6 @@ class AOKMessageBoard extends Component {
             story: ""
         };
     
-
     componentDidMount() {
         this.loadActs();
     }
@@ -112,11 +111,12 @@ class AOKMessageBoard extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={8} mdOffset={2}>
+                        <Col md={8}>
                             {this.state.AOKs.map(aok => (
-                                <AOKPost
+                                <AOKListItems
                                     key={aok.id}
                                     title={aok.title}
+                                    date={aok.date}
                                     image={aok.image}
                                     story={aok.story}
                                     link={aok.link}

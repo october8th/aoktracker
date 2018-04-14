@@ -30,8 +30,4 @@
     overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-}
 

@@ -7,7 +7,7 @@ import "./Nav.css";
 class CustomNav extends Component {
     render() {
         return (
-            <Navbar collapseOnSelect fluid>
+            <Navbar collapseOnSelect fluid fixedTop>
                 <Navbar.Header>
                     <Navbar.Brand>
                         <Link to="/">
