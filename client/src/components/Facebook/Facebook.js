@@ -17,7 +17,7 @@ class FacebookComponent extends Component {
                     fields="name,email,picture"
                     style={{height: "10px"}}
                     cssClass="btnFacebook"
-                    scope="public_profile,user_friends,user_actions.books"
+                    scope="public_profile,email"
                     callback={responseFacebook}
                     icon="fab fa-facebook-square"
                     textButton = "&nbsp;&nbsp;Log In"
