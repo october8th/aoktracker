@@ -46,6 +46,26 @@ class AOKMessageBoard extends Component {
         event.preventDefault();
         if (this.state.title && this.state.date && this.state.story) {
             console.log(`Image: ${this.state.image} \n Date: ${this.state.date} \n Title: ${this.state.title} \n Story: ${this.state.story} \n Link: ${this.state.link}`);
+            console.log(`${this.state.image}`);
+        fetch('/api/new', {
+        method: 'POST',
+        body: {
+          // Value taken from title input
+          image: `${this.state.image}`,
+          date: `${this.state.date}`,
+          title: `${this.state.title}`,
+          story: `${this.state.story}`,
+          inspiration: `${this.state.link}`
+        }
+          })
+            // With that done
+            .then(function(data) {
+              // Log the response
+              console.log(data);
+              // Empty the notes section
+            });
+
+          // Also, remove the values entered in the input and textarea for note entry
         }
     };
 

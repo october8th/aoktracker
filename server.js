@@ -22,8 +22,8 @@ app.use(routes);
 
 //https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAWFy0E2ch52woUGcHiQ27eq5tzZuhI4JE
 
-// Require all models
-//var db = require("./models");
+//Require all models
+var db = require("./models");
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/aokTracker", {

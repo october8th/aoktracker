@@ -9,7 +9,8 @@ var AokSchema = new Schema({
   // `iamge` is required and of type String
   image: {
     type: String,
-    required: true
+    default: "http://www.culinaryservicesgroup.com/wp-content/uploads/2016/12/Kindness-Inspires-Kindness-low-res-768x458.jpg",
+    required: false
   },
   // `title` is required and of type String
   title: {
@@ -20,15 +21,28 @@ var AokSchema = new Schema({
   // `link` is required and of type String
   link: {
     type: String,
+    default:"https://aoktracker.herokuapp.com/aoklist",
+    required: false
+  },
+  inspiration: {
+    type: String,
     required: true
   },
   story: {
     type: String,
     required: true
   },
-  saved: {
-    type: Boolean,
-    default: false
+  user: {
+    type: String,
+    required: false
+  },
+  date: {
+    type: Date,
+    default: Date.now 
+  },
+  location: {
+    type: String,
+    required: false
   },
   // `note` is an object that stores a Note id
   // The ref property links the ObjectId to the Note model
