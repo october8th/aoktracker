@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const aokController = require("../../controllers/aokController");
 
-router.route("/new/")
+router.route("/")
     .get(aokController.findAll)
     .post(aokController.create);
 

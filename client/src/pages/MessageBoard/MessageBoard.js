@@ -11,7 +11,7 @@ import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
 //for testing purposes
 import AOKs from "../../AOK.json";
-
+const querystring = require('query-string');
 class AOKMessageBoard extends Component {
         
         state = {
@@ -47,16 +47,20 @@ class AOKMessageBoard extends Component {
         if (this.state.title && this.state.date && this.state.story) {
             console.log(`Image: ${this.state.image} \n Date: ${this.state.date} \n Title: ${this.state.title} \n Story: ${this.state.story} \n Link: ${this.state.link}`);
             console.log(`${this.state.image}`);
-        fetch('/api/new', {
-        method: 'POST',
-        body: {
+            const postData = querystring.stringify({
           // Value taken from title input
           image: `${this.state.image}`,
           date: `${this.state.date}`,
           title: `${this.state.title}`,
           story: `${this.state.story}`,
           inspiration: `${this.state.link}`
-        }
+        });
+        fetch('/api/new', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: postData
           })
             // With that done
             .then(function(data) {
