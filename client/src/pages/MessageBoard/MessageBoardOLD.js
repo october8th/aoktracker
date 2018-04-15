@@ -28,20 +28,14 @@ class AOKMessageBoard extends Component {
     componentDidMount() {
         this.loadActs();
         this.grabLoc();
-    };
+    }
 
     grabLoc = () => {
         API.getLoc()
-            .then( res =>
-                this.setState({lat: res.data.location.lat})
-                )
-            .catch(err => console.log(err));
-        API.getLoc()
-            .then( res =>
-                this.setState({lng: res.data.location.lng})
-                )
-            .catch(err => console.log(err));
-
+            .then(res =>
+                console.log(res.data)
+            )
+            .cath(err => console.log(err))
     };
 
     loadActs = () => {
@@ -70,10 +64,17 @@ class AOKMessageBoard extends Component {
           date: `${this.state.date}`,
           title: `${this.state.title}`,
           story: `${this.state.story}`,
-          inspiration: `${this.state.link}`,
-          location: `${this.state.lat} , ${this.state.lng}`
+          inspiration: `${this.state.link}`
         });
-        API.saveNewAct(postData).then(function(data) {
+        fetch('/api/new', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: postData
+          })
+            // With that done
+            .then(function(data) {
               // Log the response
               console.log(data);
               // Empty the notes section
@@ -129,13 +130,13 @@ class AOKMessageBoard extends Component {
                                     value={this.state.link}
                                     onChange={this.handleInputChange}
                                     name="link"
-                                    placeholder="Did this inspire you to do your own act of kindness?"
+                                    placeholder="What inpired you to do this act of kindness?"
                                 />
                                 <Textarea
                                     value={this.state.story}
                                     onChange={this.handleInputChange}
                                     name="story"
-                                    placeholder="This is what someone else did for me."
+                                    placeholder="This is what I did as an act of kindness for someone else."
                                 />
                                 <SubmitBtn
                                     type="submit"

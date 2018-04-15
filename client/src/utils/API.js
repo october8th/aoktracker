@@ -6,6 +6,11 @@ export default {
     },
 
     saveNewAct: function(aokData) {
-        return axios.post("/api/aoks", aokData);
+    	axios.post("/api/fusiontable",aokData);
+        return axios.post("/api/new", aokData);
+    },
+
+    getLoc: function() {
+    	return axios.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAWFy0E2ch52woUGcHiQ27eq5tzZuhI4JE", {"considerIp": "true"})
     }
 };
