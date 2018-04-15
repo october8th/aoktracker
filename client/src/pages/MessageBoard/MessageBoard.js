@@ -10,8 +10,10 @@ import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col, Image } from "
 import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
 //for testing purposes
-import AOKs from "../../AOK.json";
+//import AOKs from "../../AOK.json";
 const querystring = require('query-string');
+console.log(AOKListItems);
+var AOKs = [];
 class AOKMessageBoard extends Component {
         
         state = {
@@ -47,7 +49,7 @@ class AOKMessageBoard extends Component {
     loadActs = () => {
         API.getActs()
             .then(res =>
-                console.log(res.data)
+                this.setState({AOKs:res.data})
             )
             .catch(err => console.log(err));
     };
@@ -153,7 +155,7 @@ class AOKMessageBoard extends Component {
                                     date={aok.date}
                                     image={aok.image}
                                     story={aok.story}
-                                    link={aok.link}
+                                    link={aok.inspiration}
                                 />
                             ))}
                         </Col>

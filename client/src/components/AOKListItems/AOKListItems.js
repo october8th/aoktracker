@@ -29,7 +29,7 @@ const AOKListItems = props => (
                 <Row>
                     <Col md={1}>
                         <b>
-                            Link:
+                            Inspire:
                         </b>
                     </Col>
                     <Col md={11}>

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
     getActs: function() {
-        return axios.get("/api/aoks");
+        return axios.get("/api/new");
     },
 
     saveNewAct: function(aokData) {
