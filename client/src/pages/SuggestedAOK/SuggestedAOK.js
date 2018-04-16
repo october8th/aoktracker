@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Row, Col } from "react-bootstrap";
+import { Grid, Row, Col, PageHeader } from "react-bootstrap";
 import Wrapper from "../../components/Wrapper";
 import CustomNav from "../../components/Nav";
 import ConfirmBtn from "../../components/ConfirmBtn";
@@ -19,9 +19,16 @@ class SuggestedAOK extends Component {
 
     render() {
         return (
-            <Wrapper backgroundImage={Ripples}>
-                <CustomNav />
+                <Wrapper backgroundImage={Ripples}>
+                    <CustomNav />
                     <Grid>
+                        <Row>
+                           <Col md={12}>
+                                <PageHeader className="headerStyle">
+                                    Daily AOK Suggestion
+                                </PageHeader>
+                            </Col>
+                        </Row>
                         <Row>
                             <Col md={6} mdOffset={3}>
                                 <AOKCard 
@@ -42,7 +49,7 @@ class SuggestedAOK extends Component {
                             </Col>
                         </Row>
                     </Grid>
-            </Wrapper>
+                </Wrapper>
         );
     }
 }

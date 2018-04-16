@@ -1,6 +1,13 @@
-.container {
-    text-align: center;
-    min-height: 100%;
+#aboutStyle {
+    background: linear-gradient(to bottom right, rgba(225, 225, 225, 0), rgba(204, 230, 255, 1));
+    height: 100vh;
+}
+
+.headerStyle {
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Amarante', cursive;
+    margin-top: 60px;
 }
 
 .aboutSections {
@@ -10,7 +17,7 @@
 .routingLinks {
     text-align: center;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 #quote {
