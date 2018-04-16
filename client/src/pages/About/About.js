@@ -52,6 +52,11 @@ const About = props => (
                         AOK List
                     </Link>
                 </Col>
+                <Col md={2}>
+                    <Link href="/suggestedaok" to="/suggestedaok" className="routingLinks">
+                        Daily Suggested AOK
+                    </Link>
+                </Col>
             </Row>
             <Row classname="aboutSections" id="quote">
                 <Col md={8} mdOffset={2}>

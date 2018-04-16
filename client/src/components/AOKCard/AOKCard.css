@@ -1,0 +1,16 @@
+#cardDiv { 
+    margin-top: 30%;
+}
+
+#cardStyle {
+    background-color: white;
+    color: black;
+    text-shadow: none;
+    font-size: 2em;
+    padding: 20px;
+}
+
+#cardTitle {
+    text-align: left;
+    font-family: 'Amarante', cursive;
+}

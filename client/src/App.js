@@ -4,6 +4,7 @@ import Main from "./pages/Main";
 import About from "./pages/About";
 import MessageBoard from "./pages/MessageBoard";
 import Map from "./pages/Map";
+import SuggestedAOK from "./pages/SuggestedAOK";
 
 const App = () => (
   <Router>
@@ -12,6 +13,7 @@ const App = () => (
         <Route exact path="/about" component={About} />
         <Route exact path="/aoklist" component={MessageBoard} />
         <Route exact path="/map" component={Map} />
+        <Route exact path="/suggestedaok" component={SuggestedAOK} />
     </div>
   </Router>
 );
