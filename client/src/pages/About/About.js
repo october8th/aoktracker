@@ -58,7 +58,7 @@ const About = props => (
                     </Link>
                 </Col>
             </Row>
-            <Row classname="aboutSections" id="quote">
+            <Row className="aboutSections" id="quote">
                 <Col md={8} mdOffset={2}>
                     <blockquote>
                         <h3>

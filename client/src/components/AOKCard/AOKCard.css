@@ -6,11 +6,18 @@
     background-color: white;
     color: black;
     text-shadow: none;
-    font-size: 2em;
+    font-size: 28px;
     padding: 20px;
 }
 
 #cardTitle {
     text-align: left;
     font-family: 'Amarante', cursive;
+}
+
+#confirmCounter {
+    vertical-align: bottom;
+    text-align: right;
+    font-size: 18px;
+    margin-top: 40px;
 }

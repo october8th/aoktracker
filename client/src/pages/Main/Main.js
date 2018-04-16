@@ -64,7 +64,7 @@ class Main extends Component {
                         <h3>
                             <Link activeClass="active" id="scrollDown" to="About" spy={true} smooth={true} isDynamic={true} duration={1500}>
                                 <span id="scrollArrow">
-                                    <i class="fas fa-arrow-circle-down"></i>
+                                    <i className="fas fa-arrow-circle-down"></i>
                                 </span>
                             </Link>
                         </h3>
