@@ -7,6 +7,13 @@ import AOKCard from "../../components/AOKCard";
 import "./SuggestedAOK.css";
 import Ripples from "../../images/ripples.jpg";
 
+
+const styles = {
+    suggestionMargin: {
+        marginTop: 100
+    }
+}
+
 class SuggestedAOK extends Component {
 
     state = {
@@ -24,12 +31,12 @@ class SuggestedAOK extends Component {
                     <Grid>
                         <Row>
                            <Col md={12}>
-                                <PageHeader className="headerStyle">
+                                <PageHeader className="headerStyle" style={styles.suggestionMargin}>
                                     Daily AOK Suggestion
                                 </PageHeader>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row id="aokCardMargin">
                             <Col md={6} mdOffset={3}>
                                 <AOKCard 
                                     suggestion="Hold the door open for someone else." 
@@ -37,15 +44,9 @@ class SuggestedAOK extends Component {
                                 />
                             </Col>
                         </Row>
-                        <Row>
+                        <Row style={styles.suggestionMargin}>
                             <Col md={6} mdOffset={3}>
-                                <h4>
-                                    Did you do today's AOK?  Click on the star to confirm.
-                                    <ConfirmBtn 
-                                        onClick={this.handleButtonClick}>
-                                        <span className="glyphicon glyphicon-star-empty"></span>
-                                    </ConfirmBtn>
-                                </h4>
+                                <ConfirmBtn onClick={this.handleButtonClick} />
                             </Col>
                         </Row>
                     </Grid>
