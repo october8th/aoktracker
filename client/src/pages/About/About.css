@@ -1,6 +1,9 @@
 #aboutStyle {
-    background: linear-gradient(to bottom right, rgba(225, 225, 225, 0), rgba(204, 230, 255, 1));
-    height: 100vh;
+    background: linear-gradient(to bottom right, rgba(225, 225, 225, .3), rgba(204, 230, 255, 1));
+    height: 75vh;
+    margin-top: 100px;
+    color: black;
+    text-shadow: none;
 }
 
 .headerStyle {
@@ -20,10 +23,15 @@
     font-size: 15px;
 }
 
+.glyphicon {
+    text-align: center;
+}
+
 #quote {
     font-family: 'Courgette', cursive;
     margin-top: 5%;
 }
+
 
 
 

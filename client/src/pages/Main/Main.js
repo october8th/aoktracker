@@ -59,7 +59,7 @@ class Main extends Component {
                             <h3>
                                 See What We're About
                             </h3>
-                            <h3>
+                            <h3 className="text-center">
                                 <Link activeClass="active" id="scrollDown" to="About" spy={true} smooth={true} isDynamic={true} duration={1500}>
                                     <span className="glyphicon glyphicon-menu-down"></span>
                                 </Link>

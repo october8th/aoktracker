@@ -1,15 +1,15 @@
 #mainHeading {
     font-family: 'Shrikhand', cursive;
-    margin-top: 10%;
+    margin-top: 200px;
     font-size: 50px;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 3px 3px 5px #000000;
 }
 
 #subMainHeading {
     font-family: 'Shrikhand', cursive;
     margin-top: 10%;
     font-size: 30px;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 3px 3px 5px #000000;
 }
 
 #mainHeading, #subMainHeading {
@@ -18,10 +18,11 @@
 
 #scrollLink {
     color: white;
-    margin-top: 10%;
+    margin-top: 130px;
     font-size: 200%;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px #000000;
     text-align: center;
+    font-weight: bold;
 }
 
 #scrollArrow {
@@ -33,5 +34,48 @@
     overflow: scroll;
     overflow-x: hidden;
 }
+
+.glyphicon-menu-down {
+    border-radius: 50%;
+    margin-top: 100px;
+    width: 25px;
+    height: 25px;
+    color: white;
+    text-shadow: 3px 3px 5px #000000;
+    cursor: pointer;
+    box-shadow: 0 0 0 rgba(242, 242, 242, 0.4);
+    animation: pulse 2s infinite;
+    text-align: center;
+}
+
+.glyphicon:hover {
+    animation: none;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(242,242,242, 0.4);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(242,242,242, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(242,242,242, 0);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(242,242,242, 0.4);
+      box-shadow: 0 0 0 0 rgba(242,242,242, 0.4);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgba(242,242,242, 0);
+        box-shadow: 0 0 0 10px rgba(242,242,242, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(242,242,242, 0);
+        box-shadow: 0 0 0 0 rgba(242,242,242, 0);
+    }
+  }
 
 

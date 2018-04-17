@@ -2,8 +2,17 @@ import React, { Component } from "react";
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll";
 import { Grid, Row, Col, PageHeader } from "react-bootstrap";
 import CustomNav from "../../components/Nav";
+import Wrapper from "../../components/Wrapper";
 import SuggestedAOK from "../SuggestedAOK";
+import Ripples from "../../images/ripples.jpg";
 import "./About.css";
+
+const styles = {
+    centerText: {
+        textAlign: "center",
+        marginTop: 20
+    }
+}
 
 class About extends Component {
     constructor(props) {
@@ -45,6 +54,7 @@ class About extends Component {
     render() {
         return (
             <div id="secondParent">
+            <Wrapper backgroundImage={Ripples}>
                 <div id="aboutStyle">
                 <CustomNav />
                 <Grid>
@@ -72,23 +82,25 @@ class About extends Component {
                     <Row>
                         <Col md={8} mdOffset={2}>
                             <h4>
-                                Below, you'll find links to an Acts of Kindness List/Message board, where you can add an AOK that you have experienced, 
+                                To see today's Suggested Daily Act of Kindness, keep scrolling!
+                            </h4>
+                            <h4 style={styles.centerText}>
+                                <Link activeClass="active" id="scrollDown" to="SuggestedAOK" spy={true} smooth={true} isDynamic={true} duration={1500}>
+                                    <span className="glyphicon glyphicon-menu-down" style={styles.centerText}></span>
+                                </Link>
                             </h4>
                         </Col>
                     </Row>
                     <Row>
                         <Col md={8} mdOffset={2}>
-                            <h4>
-                                as well as how it might have inspired you to perform an AOK of your own.  You can also leave notes about any AOK on the list for the author.
+                            <h4> 
+                                Or if you would like to check out AOKs that other folks have done -- or add your own -- click on the below link.
                             </h4>
-                        </Col>
-                    </Row>
-                    <Row className="aboutSections">
-                        <Col md={8} mdOffset={2}>
-                            Keep heading down the page to see today's Daily Act of Kindness!
-                            <Link activeClass="active" id="scrollDown" to="SuggestedAOK" spy={true} smooth={true} isDynamic={true} duration={1500}>
-                                <span className="glyphicon glyphicon-menu-down"></span>
-                            </Link>
+                            <h4 style={styles.centerText}>
+                                <a href="/aoklist">
+                                    AOK List/Message Board
+                                </a>
+                            </h4>
                         </Col>
                     </Row>
                     <Row className="aboutSections" id="quote">
@@ -102,6 +114,7 @@ class About extends Component {
                     </Row>
                 </Grid>
                 </div>
+                </Wrapper>
                 <Element name="SuggestedAOK">
                     <SuggestedAOK />
                 </Element>
