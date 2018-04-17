@@ -41,12 +41,8 @@ class SuggestedAOK extends Component {
                                 <AOKCard 
                                     suggestion="Hold the door open for someone else." 
                                     counter={this.state.confirmations}
+                                    onClick={this.handleButtonClick}
                                 />
-                            </Col>
-                        </Row>
-                        <Row style={styles.suggestionMargin}>
-                            <Col md={6} mdOffset={3}>
-                                <ConfirmBtn onClick={this.handleButtonClick} />
                             </Col>
                         </Row>
                     </Grid>

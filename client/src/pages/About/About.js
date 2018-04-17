@@ -91,6 +91,18 @@ class About extends Component {
                             </h4>
                         </Col>
                     </Row>
+                    <Row>
+                        <Col md={8} mdOffset={2}>
+                            <h4> 
+                                Or if you would like to check out AOKs that other folks have done -- or add your own -- click on the below link.
+                            </h4>
+                            <h4 style={styles.centerText}>
+                                <a href="/aoklist">
+                                    AOK List/Message Board
+                                </a>
+                            </h4>
+                        </Col>
+                    </Row>
                     <Row className="aboutSections" id="quote">
                         <Col md={8} mdOffset={2}>
                             <blockquote>
