@@ -17,8 +17,13 @@ console.log(AOKListItems);
 var AOKs = [];
 
 class AOKMessageBoard extends Component {
-        
-        state = {
+    constructor(props, context) {
+        super(props, context);
+
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+
+        this.state = {
             AOKs,
             image: "",
             date: "",
@@ -27,8 +32,18 @@ class AOKMessageBoard extends Component {
             story: "",
             lat: "",
             lng: "",
-        };
-    
+            show: false
+        }
+    }    
+        
+    handleClose() {
+        this.setState({ show: false });
+    }
+
+    handleShow() {
+        this.setState({ show: true });
+    }
+
     componentDidMount() {
         this.loadActs();
         this.grabLoc();
@@ -83,6 +98,7 @@ class AOKMessageBoard extends Component {
 
           // Also, remove the values entered in the input and textarea for note entry
         }
+        this.setState({ show: false })
     };
 
     render() {
@@ -102,9 +118,18 @@ class AOKMessageBoard extends Component {
                             <h3>
                                 Add a New Act of Kindness
                             </h3>
+                            <Button
+                                bsStyle="primary"
+                                onClick={this.handleShow}
+                            >
+                                Click Me!
+                            </Button>
                             <AOKModal 
+                                show={this.state.show}
+                                hide={this.handleClose}
                                 title="Add Your Act of Kindness"
                                 submit={this.handleFormSubmit}
+                                close={this.handleClose}
                             >
                                 <Input
                                     type="text"

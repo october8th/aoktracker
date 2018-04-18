@@ -7,35 +7,14 @@ import "./AOKModal.css";
 class AOKModal extends Component {
     constructor(props, context) {
         super(props, context);
-
-        this.handleShow = this.handleShow.bind(this);
-        this.handleClose = this.handleClose.bind(this);
-
-        this.state={
-            show: false
-        }
     }
-
-    handleClose() {
-        this.setState({ show: false });
-    }
-
-    handleShow() {
-        this.setState({ show: true });
-    }
-
+    
     render() {
         return (
             <div>
-                <Button
-                    bsStyle="primary" 
-                    onClick={this.handleShow}
-                >
-                    Click Me!
-                </Button>
                 <Modal
-                    show={this.state.show}
-                    onHide={this.handleClose}
+                    show={this.props.show}
+                    onHide={this.props.hide}
                     aria-labelledby="aok-modal"
                 >
                     <Modal.Header closeButton>
@@ -52,7 +31,7 @@ class AOKModal extends Component {
                             onClick={this.props.submit}
                         />
                         <Button
-                            onClick={this.handleClose}
+                            onClick={this.props.close}
                         >
                             Close
                         </Button>
