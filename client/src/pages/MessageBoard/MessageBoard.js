@@ -9,11 +9,13 @@ import API from "../../utils/API";
 import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col, Image, PageHeader } from "react-bootstrap";
 import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
+
 //for testing purposes
 //import AOKs from "../../AOK.json";
 const querystring = require('query-string');
 console.log(AOKListItems);
 var AOKs = [];
+
 class AOKMessageBoard extends Component {
         
         state = {
@@ -24,7 +26,7 @@ class AOKMessageBoard extends Component {
             link: "",
             story: "",
             lat: "",
-            lng: ""
+            lng: "",
         };
     
     componentDidMount() {
@@ -89,7 +91,7 @@ class AOKMessageBoard extends Component {
                 <CustomNav />
                 <Grid className="gridStyle">
                     <Row>
-                        <Col md={8} mdOffset={2}>
+                        <Col md={12}>
                             <PageHeader className="headerStyle">
                                 This Is the AOK List
                             </PageHeader>
@@ -100,7 +102,10 @@ class AOKMessageBoard extends Component {
                             <h3>
                                 Add a New Act of Kindness
                             </h3>
-                            <AOKModal title="Add Your Act of Kindness">
+                            <AOKModal 
+                                title="Add Your Act of Kindness"
+                                submit={this.handleFormSubmit}
+                            >
                                 <Input
                                     type="text"
                                     value={this.state.image}
@@ -134,10 +139,6 @@ class AOKMessageBoard extends Component {
                                     onChange={this.handleInputChange}
                                     name="story"
                                     placeholder="This is what someone else did for me."
-                                />
-                                <SubmitBtn
-                                    type="submit"
-                                    onClick={this.handleFormSubmit}
                                 />
                             </AOKModal>
                         </Col>

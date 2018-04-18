@@ -1,7 +1,8 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 export const SubmitBtn = props => (
-    <button {...props} className="btn btn-success">
+    <Button {...props} className="btn btn-success">
         Submit
-    </button>
+    </Button>
 );

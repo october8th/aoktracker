@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Modal, Button } from "react-bootstrap";
+import { SubmitBtn } from "../Form";
 import "./AOKModal.css";
 
 class AOKModal extends Component {
@@ -46,6 +47,10 @@ class AOKModal extends Component {
                         {this.props.children}
                     </Modal.Body>
                     <Modal.Footer>
+                        <SubmitBtn
+                            type="submit"
+                            onClick={this.props.submit}
+                        />
                         <Button
                             onClick={this.handleClose}
                         >
