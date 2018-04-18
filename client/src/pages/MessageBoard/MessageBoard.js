@@ -75,11 +75,9 @@ class AOKMessageBoard extends Component {
           inspiration: `${this.state.link}`,
           location: `${this.state.lat} , ${this.state.lng}`
         });
-        API.saveNewAct(postData).then(function(data) {
-              // Log the response
-              console.log(data);
-              // Empty the notes section
-            });
+        API.saveNewAct(postData).then( data =>
+              this.loadActs()
+              );
 
           // Also, remove the values entered in the input and textarea for note entry
         }
