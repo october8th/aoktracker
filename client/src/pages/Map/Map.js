@@ -11,12 +11,17 @@ class Map extends Component {
   constructor(props, context) {
         super(props, context);
         this.state = {
-            lat: "",
-            lng: ""
+            lat: 36,
+            lng: -77
         }
     }    
-  componentDidMount() {
+    componentDidMount(){
+      this.grabLoc();
+    };
+  componentWillMount() {
         this.grabLoc();
+        console.log(this.state.lat);
+        console.log("hello");
     };
   grabLoc = () => {
         API.getLoc()
@@ -29,7 +34,6 @@ class Map extends Component {
                 this.setState({lng: res.data.location.lng})
                 )
             .catch(err => console.log(err));
-
     };
 
   render() {
@@ -47,8 +51,9 @@ class Map extends Component {
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `400px` }} />}
               mapElement={<div style={{ height: `100%` }} />}
-              lng = {this.state.lng}
-              lat = {this.state.lat}
+              lng = {parseFloat(this.state.lng)}
+              lat = {parseFloat(this.state.lat)}
+              center = {{lat: parseFloat(this.state.lat),lng: parseFloat(this.state.lng)}}
             />
           </Col>
         </Row>

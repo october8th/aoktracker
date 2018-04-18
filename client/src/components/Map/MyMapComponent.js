@@ -21,6 +21,7 @@ const MapWithAFusionTablesLayer = compose(
   <GoogleMap
     defaultZoom={11}
     defaultCenter={{ lat: props.lat, lng: props.lng}}//37.4152559 -77.6135046
+    center={props.center}
   >
     <FusionTablesLayer
       options={{  
