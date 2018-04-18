@@ -23,7 +23,7 @@ const AOKCard = props => (
             <p className="confirmCounter" style={styles.questionAlign}>
                 Did you do today's AOK?  Click on the star to confirm.
                 <ConfirmBtn onClick={props.onClick}>
-                    <span className="glyphicon glyphicon-star-empty"></span>
+                    <span className={props.spanClass} id="starBtn"></span>
                 </ConfirmBtn>
             </p>
         </div>

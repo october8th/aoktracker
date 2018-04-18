@@ -39,7 +39,7 @@ class AOKModal extends Component {
                 >
                     <Modal.Header closeButton>
                         <Modal.Title id="aok-modal">
-                            Add an Act of Kindness
+                            {this.props.title}
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>

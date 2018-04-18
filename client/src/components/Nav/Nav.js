@@ -27,6 +27,9 @@ class CustomNav extends Component {
                         <NavItem componentClass={ Link } href="/aoklist" to="/aoklist" className="link">
                             AOK List
                         </NavItem>
+                        <NavItem componentClass={ Link } href="/map" to="/map" className="link">
+                            Map
+                        </NavItem>
                         <NavItem componentClass={ Link } href="#" to="#" className="link">
                             <Facebook />
                         </NavItem>

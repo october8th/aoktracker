@@ -8,20 +8,16 @@ import "./SuggestedAOK.css";
 import Ripples from "../../images/ripples.jpg";
 
 
-const styles = {
-    suggestionMargin: {
-        marginTop: 100
-    }
-}
-
 class SuggestedAOK extends Component {
 
     state = {
-        confirmations: 0
+        confirmations: 0,
+        spanClass: "glyphicon glyphicon-star-empty"
     }
 
     handleButtonClick = () => {
-        this.setState({ confirmations: this.state.confirmations + 1});
+        this.setState({ confirmations: this.state.confirmations + 1, spanClass: "glyphicon glyphicon-star" });
+
     }
 
     render() {
@@ -31,7 +27,7 @@ class SuggestedAOK extends Component {
                     <Grid>
                         <Row>
                            <Col md={12}>
-                                <PageHeader className="headerStyle" style={styles.suggestionMargin}>
+                                <PageHeader className="headerStyle">
                                     Daily AOK Suggestion
                                 </PageHeader>
                             </Col>
@@ -42,6 +38,7 @@ class SuggestedAOK extends Component {
                                     suggestion="Hold the door open for someone else." 
                                     counter={this.state.confirmations}
                                     onClick={this.handleButtonClick}
+                                    spanClass={this.state.spanClass}
                                 />
                             </Col>
                         </Row>

@@ -6,7 +6,7 @@ import AOKModal from "../../components/AOKModal";
 import AOKListItems from "../../components/AOKListItems";
 import { Input, Textarea, SubmitBtn } from "../../components/Form";
 import API from "../../utils/API";
-import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col, Image } from "react-bootstrap";
+import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col, Image, PageHeader } from "react-bootstrap";
 import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
 //for testing purposes
@@ -92,11 +92,9 @@ class AOKMessageBoard extends Component {
                 <Grid className="gridStyle">
                     <Row>
                         <Col md={8} mdOffset={2}>
-                            <Heading>
-                                <h1>
-                                    This Is the AOK List
-                                </h1>
-                            </Heading>
+                            <PageHeader className="headerStyle">
+                                This Is the AOK List
+                            </PageHeader>
                         </Col>
                     </Row>
                     <Row>
@@ -104,7 +102,7 @@ class AOKMessageBoard extends Component {
                             <h3>
                                 Add a New Act of Kindness
                             </h3>
-                            <AOKModal>
+                            <AOKModal title="Add Your Act of Kindness">
                                 <Input
                                     type="text"
                                     value={this.state.image}
