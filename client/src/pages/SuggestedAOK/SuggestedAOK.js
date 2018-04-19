@@ -17,6 +17,7 @@ class SuggestedAOK extends Component {
 
     handleButtonClick = () => {
        this.setState({ spanClass: "glyphicon glyphicon-star" }); 
+       console.log(localStorage.getItem('myData'))
        API.updateDaok()
             .then( res =>
                 this.grabConfirms())

@@ -3,7 +3,8 @@ import FacebookLogin from "react-facebook-login";
 import "./Facebook.css";
 
 const responseFacebook = (response) => {
-    console.log(response);
+    // setter
+    localStorage.setItem('myData', response.id);
 }
 
 class FacebookComponent extends Component {
