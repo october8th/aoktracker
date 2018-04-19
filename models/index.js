@@ -2,5 +2,6 @@
 
 module.exports = {
   Aok: require("./Aok"),
-  Note: require("./Note")
+  Note: require("./Note"),
+  Daok: require("./Daok")
 };

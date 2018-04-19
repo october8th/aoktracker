@@ -12,5 +12,13 @@ export default {
 
     getLoc: function() {
     	return axios.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAWFy0E2ch52woUGcHiQ27eq5tzZuhI4JE", {"considerIp": "true"})
+    },
+    updateDaok: function()
+    {
+        return axios.post("/api/daok");
+    },
+    getDaok: function()
+    {
+        return axios.get("/api/daok")
     }
 };
