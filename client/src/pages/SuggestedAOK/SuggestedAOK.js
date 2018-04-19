@@ -6,7 +6,7 @@ import ConfirmBtn from "../../components/ConfirmBtn";
 import AOKCard from "../../components/AOKCard";
 import "./SuggestedAOK.css";
 import Ripples from "../../images/ripples.jpg";
-
+import API from "../../utils/API";
 
 class SuggestedAOK extends Component {
 
@@ -16,9 +16,26 @@ class SuggestedAOK extends Component {
     }
 
     handleButtonClick = () => {
-        this.setState({ confirmations: this.state.confirmations + 1, spanClass: "glyphicon glyphicon-star" });
+       // this.setState({ confirmations: this.state.confirmations + 1, spanClass: "glyphicon glyphicon-star" }); 
+       API.updateDaok()
+            .then( res =>
+                this.grabConfirms())
+            .catch(err => console.log(err));
+
 
     }
+
+    grabConfirms = () => {
+        API.getDaok()
+            .then( res =>
+                this.setState({confirmations: res.data.howMany})
+                )
+            .catch(err => console.log(err));
+    };
+
+    componentDidMount() {
+        this.grabConfirms();
+    };
 
     render() {
         return (
