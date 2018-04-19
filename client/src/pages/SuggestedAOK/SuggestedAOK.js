@@ -16,7 +16,7 @@ class SuggestedAOK extends Component {
     }
 
     handleButtonClick = () => {
-       // this.setState({ confirmations: this.state.confirmations + 1, spanClass: "glyphicon glyphicon-star" }); 
+       this.setState({ spanClass: "glyphicon glyphicon-star" }); 
        API.updateDaok()
             .then( res =>
                 this.grabConfirms())
