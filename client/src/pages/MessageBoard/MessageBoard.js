@@ -33,6 +33,7 @@ class AOKMessageBoard extends Component {
             story: "",
             lat: "",
             lng: "",
+            notes: [],
             show: false
         }
     }    

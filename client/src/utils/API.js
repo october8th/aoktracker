@@ -26,6 +26,9 @@ export default {
         return axios.patch("/api/daok",someData)
     },
     addNote: function(aokData) {
-        axios.post("/api/newNote", aokData);
+        return axios.post("/api/notes", aokData);
+    },
+    getNotes: function(aokData) {
+        return axios.get("/api/notes", aokData);
     }
 };
