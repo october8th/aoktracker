@@ -8,7 +8,7 @@ import { Input, Textarea, SubmitBtn } from "../../components/Form";
 import API from "../../utils/API";
 import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col, Image, PageHeader } from "react-bootstrap";
 import "./MessageBoard.css";
-import Ripples from "../../images/ripples.jpg";
+import Writing from "../../images/writing.jpg";
 //import AOKs from "../../../src/AOK.json";
 
 const querystring = require('query-string');
@@ -122,7 +122,7 @@ class AOKMessageBoard extends Component {
         let noteClose = () => this.setState({ showNoteModal: false });
 
         return (
-            <Wrapper backgroundImage={Ripples}>
+            <Wrapper backgroundImage={Writing}>
                 <CustomNav />
                 <Grid className="gridStyle">
                     <Row>

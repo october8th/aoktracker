@@ -12,7 +12,7 @@ class AOKModal extends Component {
     render() {
         return (
             <div>
-                <Modal
+                <Modal id="modalStyle"
                     show={this.props.show}
                     onHide={this.props.hide}
                     aria-labelledby="aok-modal"
@@ -22,7 +22,7 @@ class AOKModal extends Component {
                             {this.props.title}
                         </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body id="modalBody">
                         {this.props.children}
                     </Modal.Body>
                     <Modal.Footer>

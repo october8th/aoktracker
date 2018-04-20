@@ -5,7 +5,7 @@ import CustomNav from "../../components/Nav";
 import ConfirmBtn from "../../components/ConfirmBtn";
 import AOKCard from "../../components/AOKCard";
 import "./SuggestedAOK.css";
-import Ripples from "../../images/ripples.jpg";
+import Ripples from "../../images/gold_ripples.jpg";
 import API from "../../utils/API";
 const querystring = require('query-string');
 
