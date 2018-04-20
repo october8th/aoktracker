@@ -9,10 +9,10 @@ class AOKNote extends Component {
     render() {
         return (
             <div>
-                <Panel id="collapsible-note-panel" expanded={this.props.open}>
+                <Panel id="collapsible-note-panel" expanded={this.state.open}>
                     <Panel.Collapse>
                         <Panel.Body>
-                            {this.props.name} / {this.props.date}: "{this.props.message}"
+                            {this.props.noteName} / {this.props.noteDate}: {this.props.noteMessage}
                         </Panel.Body>
                     </Panel.Collapse>
                 </Panel>

@@ -29,10 +29,19 @@ class AOKMessageBoard extends Component {
             lat: "",
             lng: "",
             notes: [],
+            noteName: "",
+            noteDate: "",
+            noteMessage: "",
             showAokModal: false,
-            showNoteModal: false
+            showNoteModal: false,
+            openNotes: false
         }
-    }    
+    }   
+    
+    openNotes = () => {
+        const currentState = this.state.openNotes;
+        this.setState({ openNotes: !currentState });
+    }
     
     componentDidMount() {
         this.loadActs();
@@ -95,8 +104,17 @@ class AOKMessageBoard extends Component {
 
           // Also, remove the values entered in the input and textarea for note entry
         }
-        this.setState({ showAokModal: false })
+        this.setState({ showAokModal: false });
     };
+
+    handleNoteSubmit = event => {
+        event.preventDefault();
+        if (this.state.noteName && this.state.noteDate && this.state.noteMessage) {
+            console.log(`Name: ${this.state.noteName} \n Date: ${this.state.noteDate} \n Message: ${this.state.noteMesssage}`);
+            this.setState({ noteName: this.state.noteName, noteDate: this.state.noteDate, noteMessage: this.state.noteMessage });
+        }
+        this.setState({ showNoteModal: false });
+    }
     
     render() {
 
@@ -180,6 +198,9 @@ class AOKMessageBoard extends Component {
                                     story={aok.story}
                                     link={aok.inspiration}
                                     showCreateNote={() => this.setState({ showNoteModal: true })}
+                                    noteName={this.state.noteName}
+                                    noteDate={this.state.noteDate}
+                                    noteMessage={this.state.noteMessage}
                                 />
                             ))}
                             <AOKModal
@@ -203,7 +224,7 @@ class AOKMessageBoard extends Component {
                                     name="noteDate"
                                 />
                                 <Textarea
-                                    value={this.state.message}
+                                    value={this.state.noteMessage}
                                     onChange={this.handleInputChange}
                                     name="noteMessage"
                                     placeholder="Say something kind."
