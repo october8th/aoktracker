@@ -206,6 +206,7 @@ class AOKMessageBoard extends Component {
                             <AOKModal
                                 show={this.state.showNoteModal}
                                 hide={noteClose}
+                                //noteid={aok._id}
                                 title="Add a Note to this AOK"
                                 submit={this.handleNoteSubmit}
                                 close={noteClose}
