@@ -56,7 +56,7 @@ class Main extends Component {
                             Creating Ripples of Positive Change
                         </h3>
                         <div id="scrollLink">
-                            <h3>
+                            <h3 id="subSubHeading">
                                 See What We're About
                             </h3>
                             <h3 className="text-center">

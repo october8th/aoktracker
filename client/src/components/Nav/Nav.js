@@ -10,7 +10,7 @@ class CustomNav extends Component {
             <Navbar collapseOnSelect fluid fixedTop>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/">
+                        <Link to="/" className="link">
                             AOKTracker
                         </Link>
                     </Navbar.Brand>

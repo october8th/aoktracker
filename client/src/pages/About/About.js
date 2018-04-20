@@ -10,7 +10,10 @@ import "./About.css";
 const styles = {
     centerText: {
         textAlign: "center",
-        marginTop: 20
+        marginTop: 20,
+    },
+    removeTextShadow: {
+        textShadow: "none"
     }
 }
 
@@ -60,7 +63,7 @@ class About extends Component {
                 <Grid>
                     <Row>
                         <Col md={12}>
-                            <PageHeader className="headerStyle">
+                            <PageHeader className="headerStyle" style={styles.removeTextShadow}>
                                 About AOKTracker
                             </PageHeader>
                         </Col>
@@ -86,7 +89,7 @@ class About extends Component {
                             </h4>
                             <h4 style={styles.centerText}>
                                 <Link activeClass="active" id="scrollDown" to="SuggestedAOK" spy={true} smooth={true} isDynamic={true} duration={1500}>
-                                    <span className="glyphicon glyphicon-menu-down" style={styles.centerText}></span>
+                                    <span className="glyphicon glyphicon-menu-down" style={styles.centerText} id="aboutGlyph"></span>
                                 </Link>
                             </h4>
                         </Col>

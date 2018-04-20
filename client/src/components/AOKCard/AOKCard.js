@@ -18,7 +18,7 @@ const AOKCard = props => (
             </p>
             {props.suggestion}
             <p className="confirmCounter">
-                There have been {props.counter} instances of today's AOK!
+                {props.counter} people have done today's AOK!
             </p>
             <p className="confirmCounter" style={styles.questionAlign}>
                 Did you do today's AOK?  Click on the star to confirm.

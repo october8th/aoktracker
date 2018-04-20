@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
 import "./Facebook.css";
 
+let buttonText = "Log In";
+
 const responseFacebook = (response) => {
     // setter
     localStorage.setItem('myData', response.id);
+    buttonText = "Logged In";
 }
 
 class FacebookComponent extends Component {
@@ -21,7 +24,8 @@ class FacebookComponent extends Component {
                     scope="public_profile,email"
                     callback={responseFacebook}
                     icon="fab fa-facebook-square"
-                    textButton = "&nbsp;&nbsp;Log In"
+                    textButton = {buttonText}
+                    id="facebookLogin"
                 />
             </div>
         );
