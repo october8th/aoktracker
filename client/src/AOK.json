@@ -5,7 +5,17 @@
         "date": "2018-04-12",
         "title": "Driver Let Me Merge",
         "link": "This is another  link.",
-        "story": "Another driver let me merge when the lane was about to end; this inspired me to be a more patient driver."
+        "story": "Another driver let me merge when the lane was about to end; this inspired me to be a more patient driver.",
+        "notes": [
+            {
+            "user": "thisguy",
+            "note": "I love when someone does that!"
+            },
+            {
+                "user": "thatguy",
+                "note": "Yay!  People don't suck!"
+            }
+        ]
     },
 
     {

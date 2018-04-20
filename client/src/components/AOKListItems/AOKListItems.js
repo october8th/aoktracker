@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Row, Col, Image } from "react-bootstrap";
+import AOKNote from "../AOKNote";
 import "./AOKListItems.css";
 
 const AOKListItems = props => (
@@ -7,7 +8,7 @@ const AOKListItems = props => (
         <Row className="aboutSections">
             <Col md={12}>
                 <h4>
-                    <b>{props.title} -- {props.date}</b>
+                    <b>{props.title} / {props.date}</b>
                 </h4>
             </Col>
         </Row>

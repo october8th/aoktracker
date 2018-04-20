@@ -1,9 +1,16 @@
 .thumbnail {
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
 }
 
 #listItemsGrid {
     text-align: left;
-    font-size: 18px
+    font-size: 18px;
+    background: linear-gradient(to bottom right, rgba(225, 225, 225, .7), rgba(204, 230, 255, 1));
+    color: black;
+    text-shadow: none;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    border: 1px solid #cccccc;
 }

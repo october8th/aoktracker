@@ -9,12 +9,13 @@ import API from "../../utils/API";
 import { Button, ListGroup, ListGroupItem, Panel, Grid, Row, Col, Image, PageHeader } from "react-bootstrap";
 import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
+//import AOKs from "../../../src/AOK.json";
 
 //for testing purposes
 //import AOKs from "../../AOK.json";
 const querystring = require('query-string');
 console.log(AOKListItems);
-var AOKs = [];
+//var AOKs = [];
 
 class AOKMessageBoard extends Component {
     constructor(props, context) {
@@ -24,7 +25,7 @@ class AOKMessageBoard extends Component {
         this.handleClose = this.handleClose.bind(this);
 
         this.state = {
-            AOKs,
+            AOKs: [],
             image: "",
             date: "",
             title: "",
@@ -43,7 +44,7 @@ class AOKMessageBoard extends Component {
     handleShow() {
         this.setState({ show: true });
     }
-
+    
     componentDidMount() {
         this.loadActs();
         this.grabLoc();
@@ -66,7 +67,7 @@ class AOKMessageBoard extends Component {
     loadActs = () => {
         API.getActs()
             .then(res =>
-                this.setState({AOKs:res.data})
+                this.setState({AOKs:res.data, image: "", date: "", title: "", link: "", story: ""})
             )
             .catch(err => console.log(err));
     };
@@ -82,25 +83,32 @@ class AOKMessageBoard extends Component {
         event.preventDefault();
         if (this.state.title && this.state.date && this.state.story) {
             console.log(`Image: ${this.state.image} \n Date: ${this.state.date} \n Title: ${this.state.title} \n Story: ${this.state.story} \n Link: ${this.state.link}`);
-            console.log(`${this.state.image}`);
-            const postData = querystring.stringify({
+            /*const postData = querystring.stringify({
           // Value taken from title input
+          
           image: `${this.state.image}`,
           date: `${this.state.date}`,
           title: `${this.state.title}`,
           story: `${this.state.story}`,
           inspiration: `${this.state.link}`,
           location: `${this.state.lat} , ${this.state.lng}`
-        });
-        API.saveNewAct(postData).then( data =>
-              this.loadActs()
-              );
+          
+        });*/ 
+        API.saveNewAct({
+            image: this.state.image,
+            date: this.state.date,
+            title: this.state.title,
+            story: this.state.story,
+            inspiration: this.state.link,
+            location: [this.state.lat, this.state.lng]
+        }).then( res => this.loadActs())
+            .catch(err => console.log(err));
 
           // Also, remove the values entered in the input and textarea for note entry
         }
         this.setState({ show: false })
     };
-
+    
     render() {
         return (
             <Wrapper backgroundImage={Ripples}>
@@ -115,7 +123,7 @@ class AOKMessageBoard extends Component {
                     </Row>
                     <Row>
                         <Col md={8} mdOffset={2}>
-                            <h3>
+                            <h3 id="aokListSubheading">
                                 Add a New Act of Kindness
                             </h3>
                             <Button
@@ -172,7 +180,7 @@ class AOKMessageBoard extends Component {
                         <Col md={8}>
                             {this.state.AOKs.map(aok => (
                                 <AOKListItems
-                                    key={aok.id}
+                                    key={aok._id}
                                     title={aok.title}
                                     date={aok.date}
                                     image={aok.image}

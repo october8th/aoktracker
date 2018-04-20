@@ -8,7 +8,7 @@ mongoose.connect(
 
 const aokSeed = [
     {
-        image: "https://www.usatoday.com/story/travel/advice/2017/03/26/safe-driving/99575482/",
+        image: "https://www.gannett-cdn.com/-mm-/7aaa49970bb60c0d92558d7c475844384f26f2b1/c=0-0-1881-1414&r=x404&c=534x401/local/-/media/2017/03/24/USATODAY/USATODAY/636259464567014130-GettyImages-621601764.jpg",
         title: "Driver Let Me Merge",
         link: "This is another  link.",
         story: "Another driver let me merge when the lane was about to end; this inspired me to be a more patient driver.",
@@ -16,7 +16,7 @@ const aokSeed = [
     },
 
     {
-        image: "http://www.valleynewslive.com/content/news/Target-to-roll-out-same-day-delivery-in-Twin-Cities-473826743.html",
+        image: "http://media.graytvinc.com/images/810*455/target+pic+sf1.jpg",
         title: "Stranger Held the Door Open for Me and My Kids",
         link: "This is another link",
         story: "I was struggling with my kids climbing all over the cart, when a kind stranger held the door open for me.  This inspired me to be a kinder parent that day.",
@@ -24,7 +24,7 @@ const aokSeed = [
     },
 
     {
-        image: "http://time.com/4290598/starbucks-rewards-program/",
+        image: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2016%2F04%2Fstarbucks.jpeg&w=800&q=85",
         title: "Someone bought my coffee!",
         link: "This is a link",
         story: "When I was cranky and waiting in line at the Starbucks drive-thru, someone ahead of me paid for my coffee; this inspired me to pay for the person behind me and really made my day so much better!",
