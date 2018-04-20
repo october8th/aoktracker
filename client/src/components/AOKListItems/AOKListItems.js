@@ -28,7 +28,7 @@ class AOKListItems extends Component {
                         </h4>
                     </Col>
                     <Col md={2}>
-                        <Button onClick={this.props.showCreateNote} style={{margin: "10px 0"}}>
+                        <Button onClick={this.props.showCreateNote} style={{margin: "10px 0"}} data-button={this.props.key}>
                             Add a Note
                         </Button>
                     </Col>
