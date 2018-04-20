@@ -29,7 +29,9 @@ class AOKModal extends Component {
                         <SubmitBtn
                             type="submit"
                             onClick={this.props.submit}
-                        />
+                        >
+                            Submit
+                        </SubmitBtn>
                         <Button
                             onClick={this.props.close}
                         >

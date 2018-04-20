@@ -22,8 +22,6 @@ class SuggestedAOK extends Component {
             .then( res =>
                 this.grabConfirms())
             .catch(err => console.log(err));
-
-
     }
 
     grabConfirms = () => {
