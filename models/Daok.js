@@ -15,6 +15,11 @@ var DaokSchema = new Schema({
     type: String,
     default: "counter"
   },
+  completed: [
+    {
+      userid: String,
+    }
+  ]
 });
 
 // This creates our model from the above schema, using mongoose's model method

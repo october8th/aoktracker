@@ -7,6 +7,7 @@ import AOKCard from "../../components/AOKCard";
 import "./SuggestedAOK.css";
 import Ripples from "../../images/ripples.jpg";
 import API from "../../utils/API";
+const querystring = require('query-string');
 
 class SuggestedAOK extends Component {
 
@@ -16,12 +17,21 @@ class SuggestedAOK extends Component {
     }
 
     handleButtonClick = () => {
-       this.setState({ spanClass: "glyphicon glyphicon-star" }); 
-       console.log(localStorage.getItem('myData'))
-       API.updateDaok()
-            .then( res =>
-                this.grabConfirms())
-            .catch(err => console.log(err));
+       if(this.state.spanClass =="glyphicon glyphicon-star-empty")
+       {
+            var uid = localStorage.getItem('myData');
+            if(uid == "undefined"){uid = '1234567891234';}
+            const postData = querystring.stringify({
+            // Value taken from title input
+            myuserid: uid,
+            });
+            API.updateDaok(postData)
+                .then( res =>
+                    this.grabConfirms())
+                .catch(err => console.log(err));
+            //this.setState({ spanClass: "glyphicon glyphicon-star" }); 
+            //console.log(uid);
+        }
 
 
     }
@@ -32,7 +42,20 @@ class SuggestedAOK extends Component {
                 this.setState({confirmations: res.data.howMany})
                 )
             .catch(err => console.log(err));
-    };
+        var uid = localStorage.getItem('myData');
+        if(uid == "undefined"){uid = '1234567891234';}
+        const postData = querystring.stringify({
+          // Value taken from title input
+          myuserid: uid,
+          });
+
+        API.checkDaok(postData)
+        .then( res =>
+            {
+                //console.log(res.data)
+                this.setState((res.data === null) ? { spanClass: "glyphicon glyphicon-star-empty" } : { spanClass: "glyphicon glyphicon-star" })
+            });
+    }
 
     componentDidMount() {
         this.grabConfirms();
