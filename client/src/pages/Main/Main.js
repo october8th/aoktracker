@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll";
 import Wrapper from "../../components/Wrapper";
 import CustomNav from "../../components/Nav";
-import Ripples from "../../images/ripples.jpg";
+import Ripples from "../../images/gold_ripples.jpg";
 import About from "../About";
 import "./Main.css";
 

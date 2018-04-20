@@ -3,7 +3,7 @@ import { Grid, Row, Col, PageHeader } from "react-bootstrap";
 import MyMapComponent from "../../components/Map";
 import Wrapper from "../../components/Wrapper";
 import Nav from "../../components/Nav";
-import Ripples from "../../images/ripples.jpg";
+import Ripples from "../../images/gold_ripples.jpg";
 import "./Map.css";
 import API from "../../utils/API";
 

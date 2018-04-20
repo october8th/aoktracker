@@ -4,7 +4,7 @@ import { Grid, Row, Col, PageHeader } from "react-bootstrap";
 import CustomNav from "../../components/Nav";
 import Wrapper from "../../components/Wrapper";
 import SuggestedAOK from "../SuggestedAOK";
-import Ripples from "../../images/ripples.jpg";
+import Ripples from "../../images/gold_ripples.jpg";
 import "./About.css";
 
 const styles = {
