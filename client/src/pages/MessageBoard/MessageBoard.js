@@ -11,8 +11,6 @@ import "./MessageBoard.css";
 import Ripples from "../../images/ripples.jpg";
 //import AOKs from "../../../src/AOK.json";
 
-//for testing purposes
-//import AOKs from "../../AOK.json";
 const querystring = require('query-string');
 console.log(AOKListItems);
 //var AOKs = [];
@@ -20,9 +18,6 @@ console.log(AOKListItems);
 class AOKMessageBoard extends Component {
     constructor(props, context) {
         super(props, context);
-
-        this.handleShow = this.handleShow.bind(this);
-        this.handleClose = this.handleClose.bind(this);
 
         this.state = {
             AOKs: [],
@@ -34,17 +29,10 @@ class AOKMessageBoard extends Component {
             lat: "",
             lng: "",
             notes: [],
-            show: false
+            showAokModal: false,
+            showNoteModal: false
         }
     }    
-        
-    handleClose() {
-        this.setState({ show: false });
-    }
-
-    handleShow() {
-        this.setState({ show: true });
-    }
     
     componentDidMount() {
         this.loadActs();
@@ -107,10 +95,14 @@ class AOKMessageBoard extends Component {
 
           // Also, remove the values entered in the input and textarea for note entry
         }
-        this.setState({ show: false })
+        this.setState({ showAokModal: false })
     };
     
     render() {
+
+        let aokClose = () => this.setState({ showAokModal: false });
+        let noteClose = () => this.setState({ showNoteModal: false });
+
         return (
             <Wrapper backgroundImage={Ripples}>
                 <CustomNav />
@@ -129,16 +121,16 @@ class AOKMessageBoard extends Component {
                             </h3>
                             <Button
                                 bsStyle="primary"
-                                onClick={this.handleShow}
+                                onClick={() => this.setState({ showAokModal: true })}
                             >
                                 Click Me!
                             </Button>
                             <AOKModal 
-                                show={this.state.show}
-                                hide={this.handleClose}
+                                show={this.state.showAokModal}
+                                hide={aokClose}
                                 title="Add Your Act of Kindness"
                                 submit={this.handleFormSubmit}
-                                close={this.handleClose}
+                                close={aokClose}
                             >
                                 <Input
                                     type="text"
@@ -187,8 +179,36 @@ class AOKMessageBoard extends Component {
                                     image={aok.image}
                                     story={aok.story}
                                     link={aok.inspiration}
+                                    showCreateNote={() => this.setState({ showNoteModal: true })}
                                 />
                             ))}
+                            <AOKModal
+                                show={this.state.showNoteModal}
+                                hide={noteClose}
+                                title="Add a Note to this AOK"
+                                submit={this.handleNoteSubmit}
+                                close={noteClose}
+                            >
+                                <Input
+                                    type="text"
+                                    value={this.state.noteName}
+                                    onChange={this.handleInputChange}
+                                    name="noteName"
+                                    placeholder="Your Name"
+                                />
+                                <Input
+                                    type="date"
+                                    value={this.state.noteDate}
+                                    onChange={this.handleInputChange}
+                                    name="noteDate"
+                                />
+                                <Textarea
+                                    value={this.state.message}
+                                    onChange={this.handleInputChange}
+                                    name="noteMessage"
+                                    placeholder="Say something kind."
+                                />
+                            </AOKModal>
                         </Col>
                     </Row>
                 </Grid>

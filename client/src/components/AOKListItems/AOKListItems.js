@@ -9,56 +9,6 @@ import "./AOKListItems.css";
 class AOKListItems extends Component {
     constructor(props, context) {
         super(props, context);
-
-        this.handleShow = this.handleShow.bind(this);
-        this.handleClose = this.handleClose.bind(this);
-
-        this.state = {
-            notes: [],
-            name: "",
-            date: "",
-            message: "",
-            show: false,
-            open: false
-        }
-    }
-
-    handleClose() {
-        this.setState({ show: false });
-    }
-
-    handleShow() {
-        this.setState({ show: true });
-    }
-
-    componentDidMount() {
-        this.loadNotes();
-    }
-
-    loadNotes() {
-        API.getNotes()
-            .then(res => console.log(res));
-    }
-
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-    }
-
-    addNote = event => {
-        event.preventDefault();
-        if(this.state.name && this.state.message) {
-            console.log(`Name: ${this.state.name} \n Message: ${this.state.message}`);
-
-            API.addNote({
-                name: this.state.name,
-                date: this.state.date,
-                message: this.state.message
-            }).then(res => this.loadNotes())
-            .catch(err => console.log(err));
-        }
     }
 
     render() {
@@ -71,7 +21,7 @@ class AOKListItems extends Component {
                         </h4>
                     </Col>
                     <Col md={3}>
-                        <Button onClick={this.handleShow}>
+                        <Button onClick={this.props.showCreateNote}>
                             Add Note to this AOK
                         </Button>
                     </Col>
@@ -102,50 +52,7 @@ class AOKListItems extends Component {
                             </Col>
                         </Row>
                     </Col>
-                </Row>
-                <Row>
-                    <Col md={12}>
-                        <Button onClick={() => this.setState({ open: !this.state.open })}>
-                            See Notes on this AOK
-                        </Button>
-                        {this.state.notes.map(note =>(
-                            <AOKNote
-                                key={note._id}
-                                open={this.state.open}
-                                name={note.name}
-                                date={note.date}
-                                message={note.message}
-                            />
-                        ))}
-                    </Col>
-                </Row>
-                <AOKModal
-                    show={this.state.show}
-                    hide={this.handleClose}
-                    title="Add a Note to this AOK"
-                    submit={this.addNote}
-                    close={this.handleClose}
-                >
-                    <Input
-                        type="text"
-                        value={this.state.name}
-                        onChange={this.handleInputChange}
-                        name="name"
-                        placeholder="Your Name"
-                    />
-                    <Input
-                        type="date"
-                        value={this.state.date}
-                        onChange={this.handleInputChange}
-                        name="date"
-                    />
-                    <Textarea
-                        value={this.state.message}
-                        onChange={this.handleInputChange}
-                        name="message"
-                        placeholder="Say something kind."
-                    />
-                </AOKModal>
+                </Row>  
             </Grid>
         )
     }
