@@ -10,6 +10,6 @@ router
     .route("/:id")
     .get(aokController.findById)
     .put(aokController.update)
-    .delete(aokController.remove)
+    .delete(aokController.remove);
 
 module.exports = router;
