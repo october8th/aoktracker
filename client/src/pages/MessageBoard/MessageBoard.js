@@ -13,7 +13,7 @@ import Writing from "../../images/writing.jpg";
 
 
 const querystring = require('query-string');
-console.log(AOKListItems);
+//console.log(AOKListItems);
 //var AOKs = [];
 
 class AOKMessageBoard extends Component {
@@ -46,6 +46,7 @@ class AOKMessageBoard extends Component {
         this.setState({currentNote: localStorage.getItem('noteID')});
            // var id = document.getElementsById.attr('data-button');
             console.log("data: " + this.state.currentNote);
+            //console.log("note: " + this.state.AOKs[0]);
             
     }
     
@@ -215,6 +216,7 @@ class AOKMessageBoard extends Component {
                                     image={aok.image}
                                     story={aok.story}
                                     link={aok.inspiration}
+                                    notes={aok.note}
                                     showCreateNote={this.openNotes}
                                     noteName={this.state.noteName}
                                     noteDate={this.state.noteDate}
