@@ -10,13 +10,25 @@ class AOKListItems extends Component {
         super(props, context);
 
         this.state = {
-            open: false
+            open: false,
         }
     }
 
     openNote = () => {
         this.setState({ open: !this.state.open });
     }
+
+    componentDidMount(){
+        console.log(this.props.noteID);
+    }
+
+    newNote = () => {
+        localStorage.setItem('noteID',this.props.noteID);
+
+        {this.props.showCreateNote()};
+        
+    }
+
 
     render() {
         return (
@@ -28,7 +40,7 @@ class AOKListItems extends Component {
                         </h4>
                     </Col>
                     <Col md={2}>
-                        <Button onClick={this.props.showCreateNote} style={{margin: "10px 0"}} data-button={this.props.key}>
+                        <Button onClick={this.newNote} style={{margin: "10px 0"}} >
                             Add a Note
                         </Button>
                     </Col>

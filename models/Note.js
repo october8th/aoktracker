@@ -10,6 +10,7 @@ var NoteSchema = new Schema({
   name: String,
   // `body` is of type String
   message: String,
+  noteID: String,
   date: {
     type: Date,
     default: Date.now 

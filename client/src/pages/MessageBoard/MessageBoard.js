@@ -11,6 +11,7 @@ import "./MessageBoard.css";
 import Writing from "../../images/writing.jpg";
 //import AOKs from "../../../src/AOK.json";
 
+
 const querystring = require('query-string');
 console.log(AOKListItems);
 //var AOKs = [];
@@ -34,13 +35,18 @@ class AOKMessageBoard extends Component {
             noteMessage: "",
             showAokModal: false,
             showNoteModal: false,
-            openNotes: false
+            openNotes: false,
+            currentNote:""
         }
     }   
     
     openNotes = () => {
-        const currentState = this.state.openNotes;
-        this.setState({ openNotes: !currentState });
+        const currentState = this.state.showNoteModal;
+        this.setState({ showNoteModal: !currentState })
+        this.setState({currentNote: localStorage.getItem('noteID')});
+           // var id = document.getElementsById.attr('data-button');
+            console.log("data: " + this.state.currentNote);
+            
     }
     
     componentDidMount() {
@@ -112,7 +118,18 @@ class AOKMessageBoard extends Component {
         if (this.state.noteName && this.state.noteDate && this.state.noteMessage) {
             console.log(`Name: ${this.state.noteName} \n Date: ${this.state.noteDate} \n Message: ${this.state.noteMesssage}`);
             this.setState({ noteName: this.state.noteName, noteDate: this.state.noteDate, noteMessage: this.state.noteMessage });
+
+            console.log("writing note: " + localStorage.getItem('noteID'));
+        API.addNote({
+            date: this.state.noteDate,
+            name: this.state.noteName,
+            message: this.state.noteMessage,
+            noteID: localStorage.getItem('noteID')
+        }).then( res => this.loadActs())
+            .catch(err => console.log(err));
+
         }
+
         this.setState({ showNoteModal: false });
     }
     
@@ -192,12 +209,13 @@ class AOKMessageBoard extends Component {
                             {this.state.AOKs.map(aok => (
                                 <AOKListItems
                                     key={aok._id}
+                                    noteID={aok._id}
                                     title={aok.title}
                                     date={aok.date}
                                     image={aok.image}
                                     story={aok.story}
                                     link={aok.inspiration}
-                                    showCreateNote={() => this.setState({ showNoteModal: true })}
+                                    showCreateNote={this.openNotes}
                                     noteName={this.state.noteName}
                                     noteDate={this.state.noteDate}
                                     noteMessage={this.state.noteMessage}
@@ -206,7 +224,6 @@ class AOKMessageBoard extends Component {
                             <AOKModal
                                 show={this.state.showNoteModal}
                                 hide={noteClose}
-                                //noteid={aok._id}
                                 title="Add a Note to this AOK"
                                 submit={this.handleNoteSubmit}
                                 close={noteClose}

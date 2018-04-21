@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const aokController = require("../../controllers/noteController");
+const noteController = require("../../controllers/noteController");
 
 router
     .route("/:id")
