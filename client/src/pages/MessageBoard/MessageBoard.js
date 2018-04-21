@@ -45,8 +45,9 @@ class AOKMessageBoard extends Component {
         this.setState({ showNoteModal: !currentState })
         this.setState({currentNote: localStorage.getItem('noteID')});
            // var id = document.getElementsById.attr('data-button');
-            console.log("data: " + this.state.currentNote);
-            //console.log("note: " + this.state.AOKs[0]);
+            //console.log("data: " + this.state.currentNote);
+            console.log("note: " + this.state.AOKs[0].title);
+            console.log("note: " + this.state.AOKs[0].note[0].message);
             
     }
     

@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { Grid, Row, Col, Image, Button, Panel } from "react-bootstrap";
 import AOKModal from "../AOKModal";
 import { Input, Textarea, SubmitBtn } from "../Form";
+import NotesList from "../../components/notesList";
 import API from "../../utils/API";
 import "./AOKListItems.css";
+
+
 
 class AOKListItems extends Component {
     constructor(props, context) {
@@ -14,12 +17,18 @@ class AOKListItems extends Component {
         }
     }
 
+
+
     openNote = () => {
         this.setState({ open: !this.state.open });
     }
 
     componentDidMount(){
         console.log(this.props.noteID);
+        for (var i = 0; i < this.props.notes.length; i++) {
+            console.log(this.props.notes[i].message);
+        }
+        
     }
 
     newNote = () => {
@@ -84,7 +93,16 @@ class AOKListItems extends Component {
                         <Panel id="collapsible-note-panel" expanded={this.state.open}>
                             <Panel.Collapse>
                                 <Panel.Body>
-                                    {this.props.noteName} / {this.props.noteDate}: {this.props.noteMessage}
+                                    {this.props.notes.map(note => (
+                                    <NotesList
+                                    key={note._id}
+                                    name={note.name}
+                                    date={note.date}
+                                    message={note.message}
+                                    />
+                                    ))}
+
+                                    
                                 </Panel.Body>
                             </Panel.Collapse>
                         </Panel>

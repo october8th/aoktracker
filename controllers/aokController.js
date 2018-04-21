@@ -4,11 +4,11 @@ module.exports = {
     findAll: function(req, res) {
         db.Aok
             .find(req.query)
-            .populate("note")
             .sort({ date: -1 })
+            .populate("note")
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-            //console.log(dbModel);
+            //.then(dbModel => {console.log(dbModel)})
     },
     findById: function(req, res) {
     db.Aok
