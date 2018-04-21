@@ -3,7 +3,7 @@ import { Grid, Row, Col, PageHeader } from "react-bootstrap";
 import MyMapComponent from "../../components/Map";
 import Wrapper from "../../components/Wrapper";
 import Nav from "../../components/Nav";
-import Ripples from "../../images/gold_ripples.jpg";
+import Road from "../../images/road.jpg";
 import "./Map.css";
 import API from "../../utils/API";
 
@@ -38,10 +38,10 @@ class Map extends Component {
 
   render() {
     return (
-      <Wrapper backgroundImage={Ripples}>
+      <Wrapper backgroundImage={Road}>
       <Nav />
       <Grid>
-        <PageHeader className="headerStyle">
+        <PageHeader className="headerStyle" style={{color: "black", textShadow: "none", marginTop: "100px"}}>
           Find the Location of AOKs
         </PageHeader>
         <Row>
