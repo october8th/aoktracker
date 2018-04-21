@@ -68,7 +68,7 @@ class SuggestedAOK extends Component {
                     <Grid>
                         <Row>
                            <Col md={12}>
-                                <PageHeader className="headerStyle">
+                                <PageHeader className="headerStyle" style={{marginTop: "100px"}}>
                                     Daily AOK Suggestion
                                 </PageHeader>
                             </Col>

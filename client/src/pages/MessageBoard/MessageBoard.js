@@ -144,7 +144,7 @@ class AOKMessageBoard extends Component {
                 <Grid className="gridStyle">
                     <Row>
                         <Col md={12}>
-                            <PageHeader className="headerStyle">
+                            <PageHeader className="headerStyle" style={{color: "black", textShadow: "none"}}>
                                 This Is the AOK List
                             </PageHeader>
                         </Col>
