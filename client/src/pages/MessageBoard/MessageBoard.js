@@ -131,14 +131,14 @@ class AOKMessageBoard extends Component {
             .catch(err => console.log(err));
 
         }
-
+        this.setState({ noteDate: "", noteName: "", noteMessage: ""});
         this.setState({ showNoteModal: false });
     }
     
     render() {
 
-        let aokClose = () => this.setState({ showAokModal: false });
-        let noteClose = () => this.setState({ showNoteModal: false });
+        let aokClose = () => this.setState({ showAokModal: false, image: "", date: "", title: "", story: "", inspiration: "" });
+        let noteClose = () => this.setState({ showNoteModal: false, noteDate: "", noteName: "", noteMessage: "" });
 
         return (
             <Wrapper backgroundImage={Writing}>
